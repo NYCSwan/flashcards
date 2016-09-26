@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var db = require('./model/db');
-var flashcard = require('./model/flashcards');
+var db = require('./models/db');
+var flashcard = require('./models/flashcards');
 var routes = require('./routes/index');
 var flashcards = require('./routes/flashcards');
 var users = require('./routes/users');
@@ -25,6 +25,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
+
 app.use('/users', users);
 app.use('/flashcards', flashcards);
 
@@ -61,3 +63,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+module.exports = router;

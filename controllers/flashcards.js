@@ -1,5 +1,5 @@
 var express = require("express");
-var Flashcard = require("../models/flashcard");
+var Flashcard = require("../models/flashcards");
 var router = express.Router();
 
 router.route("/")
