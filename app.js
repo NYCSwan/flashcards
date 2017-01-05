@@ -9,7 +9,7 @@ var flashcard = require('./models/flashcards');
 var routes = require('./routes/index');
 var flashcards = require('./routes/flashcards');
 var users = require('./routes/users');
-
+var cards= require('./seeds/seed.json')
 var app = express();
 
 // view engine setup
@@ -26,10 +26,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
+app.use('/test', function(req, res, next){
+  res.json( cards )
+})
 
-app.use('/users', users);
-app.use('/flashcards', flashcards);
-
+app.use('/new', function(req, res, next){
+  res.render( 'new' )
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

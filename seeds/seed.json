@@ -2,8 +2,8 @@
 	"question": "What is a recent technical challenge you experienced and how did you solve it?",
 	"answer": "A recent challenge was teaching myself the MEAN stack with mongo, node and express. It's been interesting to teach myself through simple apps.",
 	"image": "",
-	"category": "general",
-}
+	"category": "general"
+},
 {
 	"question": "What are ruby gems?",
 	"answer": "Downloadable methods, similar to node modules.",
@@ -243,5 +243,4 @@
 	"answer": "=== strict equals also compares type. generally preferred.",
 	"image": "",
 	"category": "JavaScript"
-}
-]
+}]
