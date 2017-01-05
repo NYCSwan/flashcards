@@ -1,16 +1,16 @@
 var express = require("express");
-var Flashcard = require("../models/flashcards");
+var Flashcards = require("../models/flashcards");
 var router = express.Router();
 
 router.route("/")
 	.get(function(req, res) {
-		Flashcard.find(function(err, flashcards) {
-			if (err) return res.status(500).send(err);
+		Flashcards.find(function(err, flashcards) {
+			if (err) return res.status(500).send("error: " + err);
 			res.send(flashcards);
 		});
 	})
 	.post(function(req, res) {
-		Flashcard.create(req.body, function(err, flashcard) {
+		Flashcards.create(req.body, function(err, flashcard) {
 			if (err) return res.status(500).send(err);
 			res.send(flashcard);
 		});
@@ -18,20 +18,20 @@ router.route("/")
 
 router.route("/:id")
 	.get(function(req, res) {
-		Flashcard.findById(req.params.id, function(err, flashcard) {
+		Flashcards.findById(req.params.id, function(err, flashcard) {
 			if (err) return res.status(500).send(err);
 			res.send(flashcard);
 		});
 	})
 	.put(function(req, res) {
 		console.log(req.body);
-		Flashcard.findByIdAndUpdate(req.params.id, req.body, function(err, flashcard) {
+		Flashcards.findByIdAndUpdate(req.params.id, req.body, function(err, flashcard) {
 			if (err) return res.status(500).send(err);
 			res.send({'message': 'success'});
 		});
 	})
 	.delete(function(req, res) {
-		Flashcard.findByIdAndRemove(req.params.id, function(err, flashcard) {
+		Flashcards.findByIdAndRemove(req.params.id, function(err, flashcard) {
 			if (err) return res.status(500).send(err);
 			res.send({'message': 'success'});
 		});
